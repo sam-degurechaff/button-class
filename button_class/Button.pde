@@ -1,9 +1,9 @@
 class button {
-  int x, y, w, h;
+  int x, y, w, h, high;
   boolean clicked;
   color highlight, normal;
   String text;
-  button(String t, int _x, int _y, int _w, int _h,color norm) {
+  button(String t, int _x, int _y, int _w, int _h, color norm) {
     x=_x;
     y=_y;
     w=_w;
@@ -13,10 +13,18 @@ class button {
     normal=norm;
     clicked=false;
   }
+
+  boolean toutchingmouse() {
+    return mouseX>x-w/2&&mouseX<x+w/2&&mouseY>y-h/2&&mouseY<y+h/2;
+  }
   void show() {
+    
+   //drawRect();
+   //drawLable();
+   //checkForClick();
     rectMode(CENTER);
-    if (mouseX>x-w/2&&mouseX<x+w/2&&mouseY>y-h/2&&mouseY<y+h/2) {
-      fill(hilight);
+    if (toutchingmouse()) {
+      fill(highlight);
     } else {
       fill(normal);
     }
@@ -25,7 +33,7 @@ class button {
     rect(x, y, w, h, 30);
 
     textAlign(CENTER, CENTER);
-    if (mouseX>x-w/2&&mouseX<x+w/2&&mouseY>y-h/2&&y+h/2) {
+    if (toutchingmouse()) {
       clicked=true;
     } else {
       clicked=false;

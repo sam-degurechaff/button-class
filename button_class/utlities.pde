@@ -1,8 +1,8 @@
 void click() {
   mouseReleased=false;
-  if (mousepressed)waspressed=true;
-  if (waspressed&& !mousepressed) {
-    mousereleased=true;
-    waspressed=flase;
+  if (mousePressed)waspressed=true;
+  if (waspressed&& !mousePressed==false) {
+    mouseReleased=true;
+    waspressed=false;
   }
 }
