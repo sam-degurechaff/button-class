@@ -13,4 +13,13 @@ void setup() {
 }
 
 void draw() {
-}
+  click();
+  background(bkg);
+  int i=0;
+  while (i<4) {
+    mybuttons[i].show();
+    if (mybutons[i].clicked) {
+      bkg=mybuttons[i].normal;
+    }
+    i++;
+  }
