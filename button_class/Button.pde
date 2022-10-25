@@ -3,7 +3,7 @@ class button {
   boolean clicked;
   color highlight, normal;
   String text;
-  button(String t, int _x, int _y, int _w, int _h, color norm) {
+  button(String t, int _x, int _y, int _w, int _h, color norm,color high) {
     x=_x;
     y=_y;
     w=_w;
@@ -18,12 +18,34 @@ class button {
     return mouseX>x-w/2&&mouseX<x+w/2&&mouseY>y-h/2&&mouseY<y+h/2;
   }
   void show() {
-    
-   //drawRect();
-   //drawLable();
-   //checkForClick();
+    drawbutton();
+    drawlable();
+    checkforclick();
+
+    //    //drawRect();
+    //    //drawLable();
+    //    //checkForClick();
+    //    rectMode(CENTER);
+    //    if (toutchingmouse()) {
+    //      fill(highlight);
+    //    } else {
+    //      fill(normal);
+    //    }
+    //    stroke(0);
+    //    strokeWeight(4);
+    //    rect(x, y, w, h, 30);
+
+    //    textAlign(CENTER, CENTER);
+    //    if (toutchingmouse()) {
+    //      clicked=true;
+    //    } else {
+    //      clicked=false;
+    //    }
+  }
+  void drawbutton() {
     rectMode(CENTER);
-    if (toutchingmouse()) {
+    imageMode(CENTER);
+    if (touchingmouse()) {
       fill(highlight);
     } else {
       fill(normal);
@@ -31,9 +53,24 @@ class button {
     stroke(0);
     strokeWeight(4);
     rect(x, y, w, h, 30);
-
-    textAlign(CENTER, CENTER);
-    if (toutchingmouse()) {
+  }
+  void drawlable() {
+    rectMode(CENTER);
+    imageMode(CENTER);
+    if (touchingMouse()) {
+      fill(highlight);
+    } else {
+      fill(normal);
+    }
+    if (img==null) {
+      textSize(w/4);
+      text(text, x, y);
+    } else {
+      image(img, x, y, w, h);
+    }
+  }
+  void checkforclick() {
+    if (mousereleased&&touchingmouse()) {
       clicked=true;
     } else {
       clicked=false;
