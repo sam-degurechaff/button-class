@@ -3,6 +3,7 @@ class button {
   boolean clicked;
   color highlight, normal;
   String text;
+  PImage img;
   button(String t, int _x, int _y, int _w, int _h, color norm,color high) {
     x=_x;
     y=_y;
@@ -45,7 +46,7 @@ class button {
   void drawbutton() {
     rectMode(CENTER);
     imageMode(CENTER);
-    if (touchingmouse()) {
+    if (touchingmouse) {
       fill(highlight);
     } else {
       fill(normal);
@@ -57,7 +58,7 @@ class button {
   void drawlable() {
     rectMode(CENTER);
     imageMode(CENTER);
-    if (touchingMouse()) {
+    if (touchingmouse) {
       fill(highlight);
     } else {
       fill(normal);
@@ -70,7 +71,7 @@ class button {
     }
   }
   void checkforclick() {
-    if (mousereleased&&touchingmouse()) {
+    if (mouseReleased&&touchingmouse) {
       clicked=true;
     } else {
       clicked=false;
