@@ -4,6 +4,7 @@ class button {
   color highlight, normal;
   String text;
   PImage img;
+  img=loadImage("frame_0_delay-0.03s.gif");
   button(String t, int _x, int _y, int _w, int _h, color norm,color high) {
     x=_x;
     y=_y;

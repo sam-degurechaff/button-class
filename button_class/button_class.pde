@@ -10,6 +10,8 @@ boolean waspressed;
 boolean touchingmouse;
 color bkg;
 void setup() {
+  img=loadImage("frame_0_delay-0.03s.gif");
+  
   size(600, 600);
   mybuttons=new button[4];
   mybuttons[0]=new button("blue", 200, 200, 400, 200, blue, green);
